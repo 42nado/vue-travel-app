@@ -35,10 +35,10 @@ const router = createRouter({
 
     },
     {
-      path: "panama",
+      path: "/panama",
       name: "panama",
       component: () => import('../views/PanamaView.vue')
-      
+
     }
     
   ]
