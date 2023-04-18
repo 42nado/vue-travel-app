@@ -22,6 +22,23 @@ const router = createRouter({
       path: "/brazil",
       name: "brazil",
       component: BrazilView
+    },
+    {
+      path: "/hawaii",
+      name: "hawaii",
+      component: () => import('../views/HawaiiView.vue')
+    },
+    {
+      path: "/jamaica",
+      name: "jamaica",
+      component: () => import('../views/JamaicaView.vue')
+
+    },
+    {
+      path: "panama",
+      name: "panama",
+      component: () => import('../views/PanamaView.vue')
+      
     }
     
   ]
