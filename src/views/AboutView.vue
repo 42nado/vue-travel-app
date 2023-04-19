@@ -4,12 +4,9 @@
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<style scoped >
+h1 {
+  text-align: center;
+  margin-top: 1rem;
 }
 </style>

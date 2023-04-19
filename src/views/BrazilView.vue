@@ -1,6 +1,13 @@
 <template>
     <div>
-        <h2>Brazil</h2>
+        <h1>Brazil</h1>
+
     </div>
     
 </template>
+<style scoped >
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
+</style>
