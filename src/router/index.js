@@ -2,9 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 
-
-
 const router = createRouter({
+  mode: 'history',
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -21,9 +20,19 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: "/details/:id",
+      path: "/details/:slug",
       name: "DestinationDetails",
-      component: () => import('../views/DetailsView.vue')
+      component: () => import('../views/DetailsView.vue'),
+      children: [
+        {
+          path: ":experienceSlug",
+          name: "experienceDetails",
+          props: true,
+          component: () => import('../views/ExperienceDetails.vue'),
+
+        }
+
+      ]
     }
     
   ]

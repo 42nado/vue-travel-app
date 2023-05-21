@@ -1,55 +1,59 @@
 <script >
-import  store  from "@/store.js";
+import store from "@/store.js";
 export default {
   name: 'HomeView',
   components: {},
-    data(){
-        return {
-            destinations: store.destinations
-        }
+  data() {
+    return {
+      destinations: store.destinations
     }
+  }
 };
 </script>
 
 <template>
-  <main>
-    <h1>Home</h1>
-    <div class="destinations">
-      <div class="destination" v-for="destination in destinations" :key="destination.id">
-        <router-link :to="{name: 'DestinationDetails', params: {id: destination.id}}">
-          <img :src="`/src/assets/${destination.image}`" :alt="destination.name"/>
-          <h2>{{ destination.name }}</h2>
-        </router-link>
+  <section>
+    <h1>All Destinations</h1>
+    <div class="content" >
+    <div class="card" v-for="destination in destinations" :key="destination.name">
+      <router-link :to="{ name: 'DestinationDetails', params: { slug: destination.slug } }">
+      <img :src="`/src/assets/${destination.image}`" :alt="destination.name" style="width:100%">
+      <div class="container">
+        <h4><b>{{ destination.name }}</b></h4>
       </div>
+    </router-link>
     </div>
-  </main>
+    </div>
+    
+  </section>
 </template>
 <style scoped>
-img{
-    max-width: 600px;
-    height: auto;
-    width: 100%;
-    max-height: 400px;
+h1 {
+  text-align: center;
+  margin-top: 1rem;
 }
-.destination{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.destinations{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-h2{
-    text-align: center;
-    margin-top: 1rem;
-}
-h1{
-    text-align: center;
-    margin-top: 1rem;
+.card {
+  margin: 20px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 400px;
+  border-radius: 5px;
 }
 
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 10px 16px;
+}
 </style>

@@ -6,7 +6,7 @@
             <ul>
                 <li><RouterLink to="/">Home</RouterLink></li>
                 <li v-for="destination in destinations" :key="destination.name">
-                    <RouterLink :to="{ name: 'DestinationDetails', params: { id: destination.id } }">
+                    <RouterLink :to="{ name: 'DestinationDetails', params: { slug: destination.slug } }">
                         {{ destination.name }}
                     </RouterLink>
                 
@@ -25,7 +25,6 @@ export default {
     components: {},
     data() {
         return {
-            destinationId: this.$route.params.id,
             destinations: store.destinations
         };
     }
